@@ -1,78 +1,87 @@
-// access button by the id
-let startbutton = document.getElementById('start');
-let stopbutton = document.getElementById('stop');
-let resetbutton = document.getElementById('reset');
+// Acees button from the html page
+let start_button = document.getElementById('start');
+let stop_button = document.getElementById('stop');
+let resetBtn = document.getElementById('reset');
 
-// create a variables 
-let hour = 00;
+// create variable hr = hour, min= minute, sec = seconds
+let hr = 00;
 let min = 00;
 let sec = 00;
 let count = 00;
 
-// start time 
-startbutton.addEventListener('click', function(){
-    timer = true;
-    watch();
+
+// on click functions
+// start button
+start_button.addEventListener('click', function () {
+	timer = true;
+	watch();
 });
 
-// stop stopwatch time
-stopbutton.addEventListener('click', function(){
-    timer = false;
+// stop button
+stop_button.addEventListener('click', function () {
+	timer = false;
 });
 
-// reset all values on the html page! (hr:min:sec)
-resetbutton.addEventListener('click', function(){
-    timer = false;
-    hour = 0;
-    min = 0;
-    sec = 0;
-    count = 0;
-    document.getElementById('hr').innerHTML == "00";
-    document.getElementById('min').innerHTML == "00";
-    document.getElementById('sec').innerHTML == "00";
-})
+// reset button
+resetBtn.addEventListener('click', function () {
+	timer = false;
+	hr = 0;
+	min = 0;
+	sec = 0;
+	count = 0;
+	document.getElementById('hr').innerHTML = "00";
+	document.getElementById('min').innerHTML = "00";
+	document.getElementById('sec').innerHTML = "00";
+	document.getElementById('count').innerHTML = "00";
+});
 
-// time work functionality
-function watch(){
-    if(timer){
-        count++;
 
-        if(count == 100){
-            sec++;
-            count=0;
-        }
-        if(sec == 60){
-            min++;
-            sec = 0;
-        }
-        if(min == 60){
-            hour++;
-            min = 0;
-            sec = 0;
-        }
+// stop watch functionality
+function watch() {
+	if (timer) {
+		count++;
 
-        let hourstring = hour;
-        let minstring = min;
-        let secstring = sec;
-        let countstring = count;
+		if (count == 100) {
+			sec++;
+			count = 0;
+		}
 
-        if(hour <10){
-            hourstring = "0" + hourstring;
-        }
-        if(min < 10){
-            minstring = "0" + minstring;
-        }
-        if(sec < 10){
-            secstring = "0" + secstring;
-        }
-        if(count < 10){
-            countstring = "0" + countstring;
-        }
+		if (sec == 60) {
+			min++;
+			sec = 0;
+		}
 
-        document.getElementById('hr').innerHTML = hourstring; // access hour values for the html page like (00)
-        document.getElementById('min').innerHTML = minstring; // access min values for the html page like (00)
-        document.getElementById('sec').innerHTML = secstring; // access hour sec for the html page like (00)
-        
-        setTimeout(watch, 10);
-        }
+		if (min == 60) {
+			hr++;
+			min = 0;
+			sec = 0;
+		}
+
+		let hrString = hr;
+		let minString = min;
+		let secString = sec;
+		let countString = count;
+
+		if (hr < 10) {
+			hrString = "0" + hrString;
+		}
+
+		if (min < 10) {
+			minString = "0" + minString;
+		}
+
+		if (sec < 10) {
+			secString = "0" + secString;
+		}
+
+		if (count < 10) {
+			countString = "0" + countString;
+		}
+
+		document.getElementById('hr').innerHTML = hrString;
+		document.getElementById('min').innerHTML = minString;
+		document.getElementById('sec').innerHTML = secString;
+		document.getElementById('count').innerHTML = countString;
+		setTimeout(watch, 10);
+	}
 }

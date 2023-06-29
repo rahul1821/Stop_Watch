@@ -11,10 +11,10 @@
             font-size: 50px;
             text-align: center;
         }
-        .button{
+        .buttons{
             text-align: center;
         }
-        .button input{
+        .buttons button{
             
             font-size: 20px;
             text-align: center;
@@ -24,7 +24,7 @@
             border: 2px solid rgb(84, 168, 84);
            
         }
-        .button :hover{
+        .buttons :hover{
             color: red;
             border: 2px solid rgb(248, 7, 7);
             background-color: red;
@@ -43,10 +43,12 @@
     </style>
 </head>
 <body>
-    <h1>Stopwach</h1>
+    <!-- These are the Heading -->
+    <h1>Stopwatch</h1>
     <h4>make by</h4>
     <h1>Rahul Singh</h1>
     <h4>
+        <!-- Define time to show HR:MIN:SEC -->
         <span style="margin-right: 20px;">HR</span>
         <span style="margin-right: 20px;">:</span>
         <span style="margin-right: 20px;">MIN</span>        
@@ -54,20 +56,26 @@
         <span style="margin-right: 20px;">SEC</span>
         
     </h4>
-
+    <!-- create class timer within -->
    <div class="time">
     <span class="digit" id="hr">00</span>
     <span class="txt">:</span>
     <span class="digit" id="min">00</span>
     <span class="txt">:</span>
     <span class="digit" id="sec">00</span>
+    <span class="txt">:</span>
+    <span class="digit" id="count">00</span>
     
    </div>
-   <div class="button" >
-    <input type="button" value="Start" id="start" >
-    <input type="button" value="Stop" id="stop">
-    <input type="button" value="Reset" id="reset">
+
+   <!-- create button using input tag -->
+   <div class="buttons" >
+    <button class="btn" id="start">Start</button>
+    <button class="btn" id="stop">Stop</button>
+    <button class="btn" id="reset">Reset</button>
    </div>
+
+   <!-- Here! this is a script of the stopwatch  -->
    <script src="script.js"></script>
 </body>
 </html>
